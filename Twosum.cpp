@@ -1,44 +1,18 @@
-#include <iostream>
-#include <vector>
-using namespace std;
 
-void twoSum(vector<int> &nums, int target)
+class Solution
+{
+public:
+    vector<int> twoSum(vector<int> &nums, int target)
     {
-        bool flag = false;
-        for(int i=0; i<nums.size(); i++){
-            for (int j = i+1; j < nums.size(); j++)
+        vector<int> result;
+        for (int i = 0; i < nums.size(); i++)
+        {
+            for (int j = i + 1; j < nums.size(); j++)
             {
-                if((nums[i]+nums[j]) == target){
-                    if(!flag){
-                        cout<< "["<<i<<","<<j<<"]"<<endl;
-                        flag = true;
-                    }
-
-                }
-
+                if ((nums[i] + nums[j]) == target)
+                    result = {i, j};
             }
-            
         }
-}
-
-
-int main(){
-
-    int n;
-    int target;
-
-    cin>>n>>target;
-
-    vector<int>nums;
-
-    for(int i=0; i<n; i++){
-        int num;
-        cin>>num;
-
-        nums.push_back(num);
+        return result;
     }
-
-    twoSum(nums, target);
-
-    return 0;
-}
+};
